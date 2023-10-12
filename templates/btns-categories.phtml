@@ -1,0 +1,8 @@
+
+<div class="container-btn-productos-especificos">
+<?php foreach($categories as $category): ?>
+
+      <a href="categoria/<?= $category->id_categoria ?>"><button class="btn-productos-especificos">VER <?= $category->nombre_categoria ?> </button></a>
+      
+      <?php endforeach ?>   
+    </div>
