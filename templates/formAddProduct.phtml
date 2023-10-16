@@ -1,0 +1,27 @@
+
+<form action="agregar" method="POST" style="margin-top: 200px;">
+    <input name="Nombre" type="text" placeholder="Nombre">
+    <input name="Talla" type="text" placeholder="Talla">
+    <input name="Precio" type="number" placeholder="Precio">
+    <input name="Descripcion" type="text" placeholder="Descripcion">
+
+    <select name="category">
+
+        <?php
+        $categorias_unicas = array();
+
+        foreach ($products as $product) :
+            $nombre_categoria = $product->nombre_categoria;
+            if (!in_array($nombre_categoria, $categorias_unicas)) {
+                $categorias_unicas[] = $nombre_categoria;
+        ?>
+                <option value="<?= $product->categoria ?>">
+                    <?= $nombre_categoria ?>
+                </option>
+        <?php
+            }
+        endforeach;
+        ?>
+    </select>
+    <button type="submit">Enviar</button>
+</form>

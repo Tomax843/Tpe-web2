@@ -17,4 +17,6 @@ class categoryController{
         $products = $this->model->getProducts();
         $this->view->showCategoryId($products, $categoryId);
     }
+    //fijarme si esta bien poner las cosas que debe hacer el admin como public function
+
 }

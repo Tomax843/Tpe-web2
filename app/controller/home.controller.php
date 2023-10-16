@@ -1,7 +1,7 @@
 <?php
 require_once 'app/view/home.view.php';
 require_once 'app/model/products.model.php';
-require_once 'app/model/btnCategories.model.php';
+require_once 'app/model/category.model.php';
 
 class homeController {
 
@@ -12,7 +12,7 @@ class homeController {
     public function __construct(){
         $this->view = new homeView();
         $this->productModel = new productsModel();
-        $this->categoriesModel = new btnCategories();
+        $this->categoriesModel = new categoryModel();
         
     }
 

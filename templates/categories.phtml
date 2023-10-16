@@ -1,12 +1,11 @@
 <?php require_once 'header.phtml' ?>
 <!--//if(empty($categories)){ esto se hace en el model -->
-  
+
 <section class="productos-destacados">
   <h1 class="titulo-productos-destacados">PRODUCTOS MAS DESTACADOS</h1>
 
   <?php foreach ($products as $product) : ?>
     <!-- hacer un if(parametro === $category->nombre_categoria) muestro los productos con esa categoria-->
-
     <?php if ($product->categoria == $categoryId) : ?>
 
       <div class="cards">
@@ -24,6 +23,7 @@
           <h2 class="titulo-remeras"> <?= $product->nombre_categoria ?> </h2>
           <h5 class="nombre-remeras"> <?= $product->nombre ?> </h5>
           <p class="svg-dinero"><span class="iconify" data-icon="material-symbols:attach-money-rounded"></span>$<?= $product->precio ?></p>
+
         </div>
       </div>
     <?php endif ?>

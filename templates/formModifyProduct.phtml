@@ -1,0 +1,26 @@
+<?php require_once 'header.phtml' ?>
+
+<!-- poner el iff que llama al form  que se carga de forma dinamica -->
+
+
+    <select name="category">
+        <?php
+        $categorias_unicas = array(); 
+
+        foreach ($products as $product) :
+            $nombre_categoria = $product->nombre_categoria;
+            if (!in_array($nombre_categoria, $categorias_unicas)) {
+                $categorias_unicas[] = $nombre_categoria;
+        ?>
+                <option value="<?= $product->categoria ?>">
+                    <?= $nombre_categoria ?>
+                </option>
+        <?php
+            }
+        endforeach;
+        ?>
+    </select>
+
+
+
+<?php require_once 'footer.phtml' ?>

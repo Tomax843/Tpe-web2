@@ -18,6 +18,10 @@
           <h2 class="titulo-remeras"> <?= $product->nombre_categoria ?> </h2>
           <h5 class="nombre-remeras"> <?= $product->nombre ?> </h5>
           <p class="svg-dinero"><span class="iconify" data-icon="material-symbols:attach-money-rounded"></span>$<?= $product->precio ?></p>
+  <!-- si el usuario es admin lo muestro si no no -->
+          <a href="eliminar/<?= $product->id_producto ?>"><button>Eliminar</button></a>
+          <button href="formModifyProduct<?= $product->id_producto ?>">Modificar</button>
+
         </div>
       </div>
       

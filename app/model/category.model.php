@@ -15,5 +15,12 @@ class categoryModel{
         return $categories;
     }
 
+    function categories(){
+        $query = $this->db->prepare('SELECT * FROM `categoria_producto`');
+        $query->execute();
+
+        $categories = $query->fetchAll  (PDO::FETCH_OBJ);
+        return $categories;
+    }
 
 }

@@ -1,0 +1,47 @@
+<?php require 'templates/header.phtml' ?>
+<?php require 'templates/formAddProduct.phtml' ?>
+
+<table border="1">
+    <tr>
+        <th>categoria</th>
+        <th>Descripcion</th>
+        <th>Talla</th>
+        <th>Precio</th>
+        <th>Nombre del Producto</th>
+        <th>Acciones</th> <!-- Agregamos una columna para los botones de "Borrar" -->
+    </tr>
+    <?php foreach ($products as $product) : ?>
+        <tr>
+            <td><?php echo $product->nombre_categoria; ?></td>
+            <td><?php echo $product->descripcion; ?></td>
+            <td><?php echo $product->talla; ?></td>
+            <td><?php echo $product->precio; ?></td>
+            <td><?php echo $product->nombre; ?></td>
+            
+            <td>
+                <a href="eliminar/<?= $product->id_producto ?>">Borrar</a>
+            </td>
+
+            <td>
+                <a href="modificar-producto/<?= $product->id_producto ?>">Modificar</a>
+            </td>
+        </tr>
+
+        <?php if ($id_modificar == $product->id_producto) { ?>
+            <form action="update-producto/<?= $product->id_producto ?>" method="POST">
+
+                <input required name="category" type="text" value="<?php echo $product->nombre_categoria ?>">
+                <input required name="description" type="text" value="<?php echo $product->descripcion; ?>">
+                <input required name="talla" type="text" value="<?php echo $product->talla; ?>">
+                <input required name="price" type="text" value="<?php echo $product->precio; ?>">
+                <input required name="name" type="text" value="<?php echo $product->nombre; ?>">
+                
+
+                <button type="submit">Guardar cambio</button>
+             
+            </form>
+        <?php } ?>
+    <?php endforeach; ?>
+</table>
+
+ <?php require 'templates/footer.phtml' ?>
