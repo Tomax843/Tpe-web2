@@ -29,16 +29,13 @@
 
         <?php if ($id_modificar == $product->id_producto) { ?>
             <form action="update-producto/<?= $product->id_producto ?>" method="POST">
-
-                <input required name="category" type="text" value="<?php echo $product->nombre_categoria ?>">
+                <input required name="category" type="text" value="<?php echo $product->categoria ?>">
                 <input required name="description" type="text" value="<?php echo $product->descripcion; ?>">
                 <input required name="talla" type="text" value="<?php echo $product->talla; ?>">
                 <input required name="price" type="text" value="<?php echo $product->precio; ?>">
                 <input required name="name" type="text" value="<?php echo $product->nombre; ?>">
-                
 
                 <button type="submit">Guardar cambio</button>
-             
             </form>
         <?php } ?>
     <?php endforeach; ?>

@@ -39,13 +39,5 @@ class productsModel{
         $query->execute([$category, $description, $talla, $price, $name, $productId]);
     }
 
-
-    // public function updateProduct($category, $description, $talla, $price, $name, $productId) {
-    //     $query = $this->getProductById($productId);
-    //     $query = $this->db->prepare('UPDATE productos SET categoria=? ,descripcion=? ,talla=? ,precio=?, nombre=? WHERE ID_producto=?');
-    //     $query->execute([$category, $description, $talla, $price, $name, $productId]);
-    // }
-
-
 }
 

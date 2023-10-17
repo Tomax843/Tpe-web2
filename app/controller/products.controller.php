@@ -11,6 +11,7 @@ class productsController {
     public function __construct(){
         $this->model = new productsModel();
         $this->view = new productsView();
+        loginHelper::verifyAdmin();
     }
 
     
@@ -47,27 +48,12 @@ class productsController {
         $this->model->deleteProduct($productId);
         header('Location: ' . BASE_URL);
 
-    }
+    }    
 
-    // public function modifyProduct($productId){
-    //     $productById = $this->model->getProductById($productId);
-    //     $this->view->showFormModify($productId);
-    //     if ((!empty($_POST['productId'])) && (!empty($_POST['category'])) && (!empty($_POST['description'])) && (!empty($_POST['talla'])) && (!empty($_POST['price'])) && (!empty($_POST['name']))){
-    //         $productId= $_POST['productId'];
-    //         $category = $_POST['category'];
-    //         $description = $_POST['description'];
-    //         $talla = $_POST['talla'];
-    //         $price = $_POST['price'];
-    //         $name = $_POST['name'];
 
-    //         $productId = $this->model->updateProduct($productId, $category, $description, $talla, $price, $name);
-    //         header("Location: " . BASE_URL);
-    //     }
-    // }
-    
+
     function showDates(){
-        //creo que en vez de hacer 2 lineas llamo a la de agarrar products y se lo paso como param a showDates
-        $products = $this->model->getProducts();//aca creo que tengo que llamar a product model
+        $products = $this->model->getProducts();
         $this->view->showDates($products);
         
     }
@@ -75,7 +61,6 @@ class productsController {
     //parte de moderador
         function updateProduct($productId){
             if($_POST){
-                // FIJARME QUE ACA ME TIRA EL ERROR, NO ME TOMA LOS NAME DE LOS INPUT DEL FORM
                 $category = $_POST['category'];
                 $description = $_POST['description'];
                 $talla = $_POST['talla'];
@@ -89,11 +74,8 @@ class productsController {
                 $this->model->updateProduct($category,$description,$talla,$price,$name,$productId);
                 //$this->view->udapteProducts($modelMarca,$date,$id);
                 header('Location: ' . BASE_URL . 'datosProductos');
-            } else {
-                echo "error";//sacar esto
             }
         }
-
     }
 
     function editProduct($id){

@@ -1,4 +1,5 @@
 <?php
+require_once 'app/model/category.model.php';
 
 require_once 'app/model/products.model.php';
 require_once 'app/view/category.view.php';
@@ -6,17 +7,30 @@ require_once 'app/view/category.view.php';
 class categoryController{
 
     private $model;
+    private $modelCategory;
     private $view;
     
     public function __construct(){
         $this->model = new productsModel();
+        $this->modelCategory = new categoryModel();
         $this->view = new categoryView();
     }
-
+//mirar category si esta bien agarrar las 2 db aca. la de getproducts
     public function category($categoryId){
         $products = $this->model->getProducts();
         $this->view->showCategoryId($products, $categoryId);
     }
-    //fijarme si esta bien poner las cosas que debe hacer el admin como public function
 
+    function showDatesCategories(){
+        $categories = $this->modelCategory->categories();
+        $this->view->showDates($categories);
+        
+    }
+
+    function editCategory($id){
+        $categories = $this->modelCategory->categories();
+
+        $this->view->showDates($categories, $id);
+    }
+    
 }

@@ -2,6 +2,7 @@
 require_once './app/controller/home.controller.php';
 require_once './app/controller/products.controller.php';
 require_once './app/controller/category.controller.php';
+require_once './app/controller/login.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -21,6 +22,11 @@ switch ($params[0]) {
     case 'datosProductos':
         $productsController = new productsController();
         $productsController->showDates();
+        break;  
+        
+    case 'datosCategorias':
+        $productsController = new categoryController();
+        $productsController->showDatesCategories();
         break;  
 
     case 'detalle':
@@ -61,8 +67,35 @@ switch ($params[0]) {
         $controller = new productsController();
         $controller->editProduct($productId);
         break;
-    
 
+        
+    case 'modificar-categoria':
+        $productId = $params[1];
+
+        $controller = new categoryController();
+        $controller->editCategory($productId);
+        break;
+
+        // case 'update-category':
+        //     $productId = $params[1];
+    
+        //     $controller = new productsController();
+        //     $controller->updateProduct($productId);
+        //     break;
+
+    case 'login':
+        $controller = new loginController();
+        $controller->showLogin(); 
+        break;
+    case 'auth':
+        $controller = new loginController();
+        $controller->login();
+        break;
+
+    case 'logout':
+        $controller = new loginController();
+        $controller->logout();
+        break;
     default: 
         // show404(); 
         break;

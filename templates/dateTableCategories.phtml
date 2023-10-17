@@ -1,0 +1,55 @@
+<?php require 'templates/header.phtml' ?>
+
+<form action="agregar" method="POST" style="margin-top: 200px;">
+    <input name="Descripcion" type="text" placeholder="Descripcion">
+
+    <select name="category">
+
+        <?php
+        $categorias_unicas = array();
+
+        foreach ($categories as $category) :
+            $nombre_categoria = $category->nombre_categoria;
+            if (!in_array($nombre_categoria, $categorias_unicas)) {
+                $categorias_unicas[] = $nombre_categoria;
+        ?>
+                <option value="<?= $category->categoria ?>">
+                    <?= $nombre_categoria ?>
+                </option>
+        <?php
+            }
+        endforeach;
+        ?>
+    </select>
+    <button type="submit">Enviar</button>
+</form>
+
+
+
+<table border="1">
+    <tr>
+        <th>categoria</th>
+    </tr>
+    <?php foreach ($categories as $category) : ?>
+        <tr>
+            <td><?php echo $category->nombre_categoria; ?></td>
+            <td>
+                <a href="eliminar/<?= $product->id_categoria ?>">Borrar</a>
+            </td>
+
+            <td>
+                <a href="modificar-producto/<?= $product->id_categoria ?>">Modificar</a>
+            </td>
+        </tr>
+
+        <?php if ($id_modificar == $product->id_producto) { ?>
+            <form action="update-producto/<?= $product->id_producto ?>" method="POST">
+                <input required name="category" type="text" value="<?php echo $product->nombre_categoria?>">
+
+                <button type="submit">Guardar cambio</button>
+            </form>
+        <?php } ?>
+    <?php endforeach; ?>
+</table>
+
+ <?php require 'templates/footer.phtml' ?>

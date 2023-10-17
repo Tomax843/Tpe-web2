@@ -1,0 +1,25 @@
+<?php require 'templates/header.phtml' ?>
+
+<div>
+    <form method="POST" action="auth" style="margin-top: 200px;">
+        <div>
+            <label for="userId">usuario</label>
+            <input type="text" required id="userId" name="userId" >
+        </div>
+        <div>
+            <label for="passwordId">Password</label>
+            <input type="password" required id="passwordId" name="passwordId">
+        </div>
+
+        <?php if ($error) : ?>
+            <div role='alert'>
+                <?= $error ?>
+            </div> 
+        <?php endif ?>
+       
+        <button type="submit">Entrar</button>
+    </form>
+</div>
+
+<?php require 'templates/footer.phtml' ?>
+
