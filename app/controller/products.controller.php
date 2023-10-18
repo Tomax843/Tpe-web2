@@ -26,7 +26,6 @@ class productsController {
     public function addProduct(){
         $products = $this->model->getProducts();
         $this->view->showAddProduct($products);
-        // VER SI TENGO QUE PONER isset() Para que no me tire error en la pagina
         if((isset($name) && !empty($name)) && (isset($category) && !empty($category)) && (isset($description) && !empty($description))&& (isset($talla)&& !empty($price)) && (isset($price)&& !empty($talla))){
         $category = $_POST['category'];
         $description = $_POST['Descripcion'];
@@ -36,7 +35,6 @@ class productsController {
         }else{
             $this->view->showError("Debe completar todos los campos");
         }
-        //validaciones
         if (empty($description) || empty($talla) || empty($price) || empty($name) || empty($category)) {
             $this->view->showError("Debe completar todos los campos");
             return;

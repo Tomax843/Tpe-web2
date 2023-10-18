@@ -15,7 +15,6 @@ class categoryController{
         $this->modelCategory = new categoryModel();
         $this->view = new categoryView();
     }
-//mirar category si esta bien agarrar las 2 db aca. la de getproducts
     public function category($categoryId){
         $products = $this->model->getProducts();
         $this->view->showCategoryId($products, $categoryId);

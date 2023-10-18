@@ -56,7 +56,6 @@ public function addProduct(){
         
     }
     
-    //parte de moderador
         function updateProduct($productId){
             if($_POST){
                 $category = $_POST['category'];
@@ -67,7 +66,6 @@ public function addProduct(){
 
                 if ((isset($name) && !empty($name)) && (isset($category) && !empty($category)) && (isset($description) && !empty($description))&& (isset($talla)&& !empty($price)) && (isset($price)&& !empty($talla))) {
                     // $this->view->showError("Debe completar todos los campos");
-                    $products = $this->modelProducts->getProducts();
 
                 $this->model->updateProduct($category,$description,$talla,$price,$name,$productId);
                 //$this->view->udapteProducts($modelMarca,$date,$id);

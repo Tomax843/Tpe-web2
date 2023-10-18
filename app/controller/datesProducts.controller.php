@@ -21,14 +21,12 @@ public function addProduct(){
     
         $products = $this->modelProducts->getProducts();
         $this->view->showAddProduct($products);
-        // VER SI TENGO QUE PONER isset() Para que no me tire error en la pagina
         $category = $_POST['category'];
         $description = $_POST['Descripcion'];
         $talla = $_POST['Talla'];
         $price = $_POST['Precio'];
         $name = $_POST['Nombre'];
         
-        //validaciones
         if (empty($description) || empty($talla) || empty($price) || empty($name) || empty($category)) {
             // $this->view->showError("Debe completar todos los campos"); HACER EL SHOWERROR
             return;
@@ -56,7 +54,6 @@ public function addProduct(){
         
     }
     
-    //parte de moderador
         function updateProduct($productId){
             if($_POST){
                 $category = $_POST['category'];

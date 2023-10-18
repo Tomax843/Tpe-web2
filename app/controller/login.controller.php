@@ -22,12 +22,10 @@ class loginController {
         $passwordPost = $_POST['passwordId'];
 
         if (empty($userPost) || empty($passwordPost)) {
-            // IMPORTANTE
-            $this->view->showLogin('Faltan completar datos'); //hacer un html de error por si estan vacios los campos
+            $this->view->showLogin('Faltan completar datos'); 
             return;
         }
 
-        // Hashear la contraseña
         $userAdmin = $this->model->getAdmin();
         
         if ($userPost == $userAdmin->usuarios && password_verify($passwordPost, $userAdmin->pass)) {
@@ -45,6 +43,3 @@ class loginController {
     }
 }
 
-//  verifico logueado 
-//public function __construct() { 
-    //loginHelper::verify();

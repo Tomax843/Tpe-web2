@@ -30,14 +30,11 @@ class loginHelper {
         loginHelper::init();
         
         if (!isset($_SESSION['USER_ID'])) {
-            // El usuario no está autenticado, redirige a la página de inicio de sesión
             header('Location: ' . BASE_URL . 'login');
             die();
         }
     
-        // Verifica si el usuario actual es "webadmin" (ajusta esto según tu sistema)
         if ($_SESSION['USER_ID'] !== 1) {
-            // El usuario no es el administrador, redirige a una página de acceso denegado
             header('Location: ' . BASE_URL . 'product');
             die();
         }

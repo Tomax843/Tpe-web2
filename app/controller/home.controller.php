@@ -17,7 +17,6 @@ class homeController {
     }
 
     public function mostrarHome(){
-            //llamar al metodo session start
         $products = $this->productModel->getProducts();
         $categories = $this->categoriesModel->categories();
         $this->view->showHome($products, $categories);   

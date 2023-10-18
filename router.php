@@ -39,7 +39,6 @@ switch ($params[0]) {
         
     case 'categoria':
         $categoryId = $params[1];
-        //categorias
         $categoryController = new categoryController();
         $categoryController->category($categoryId);
         break;
@@ -72,17 +71,9 @@ switch ($params[0]) {
         
     case 'modificar-categoria':
         $productId = $params[1];
-
         $controller = new categoryController();
         $controller->editCategory($productId);
         break;
-
-        // case 'update-category':
-        //     $productId = $params[1];
-    
-        //     $controller = new productsController();
-        //     $controller->updateProduct($productId);
-        //     break;
 
     case 'login':
         $controller = new loginController();
