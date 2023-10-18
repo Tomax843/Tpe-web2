@@ -18,5 +18,9 @@ class productsView {
         require_once 'templates/dateTableProducts.phtml';
     }
     
+    function showError($errors, $id_modificar = null){
+        require_once 'templates/errores.phtml';
+    }
+    
 
 }

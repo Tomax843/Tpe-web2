@@ -1,10 +1,6 @@
 <?php
-
-class productsModel{
-    private $db;
-    public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=e-comerce;charset=utf8','root','');
-    }
+require_once 'app/model/model.php';
+class productsModel extends Model{
     
 //ver el select si esta bien, como en las filminas
     public function getProducts(){

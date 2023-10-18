@@ -1,11 +1,8 @@
 
 <?php
+require_once 'app/model/model.php';
+class categoryModel extends Model {
 
-class categoryModel{
-    private $db;
-    public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=e-comerce;charset=utf8','root','');
-    }
 
     function getCategoryById($id){
         $query = $this->db->prepare('SELECT * FROM categoria_producto WHERE id_categoria = ?');
@@ -22,12 +19,7 @@ class categoryModel{
         $categories = $query->fetch(PDO::FETCH_OBJ);
         return $categories;
     }
-    // public function getCategoryMostrarId(){
-    //     $query = $this->db->prepare("SELECT * FROM categoria_producto WHERE id_categoria = ?");
-    //     $query->execute([$idHouse]);
 
-    //     return $query->fetch(PDO::FETCH_OBJ);
-    // }
 
     function categories(){
         $query = $this->db->prepare('SELECT * FROM `categoria_producto`');

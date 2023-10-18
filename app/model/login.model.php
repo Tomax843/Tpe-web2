@@ -1,12 +1,6 @@
 <?php
-
-class loginModel {
-    private $db;
-
-    function __construct() {
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=e-comerce;charset=utf8','root','');
-    }
-
+require_once 'app/model/model.php';
+class loginModel extends Model{
     
     public function getByuser($usuario) {
         $query = $this->db->prepare('SELECT * FROM usuario WHERE usuarios = ?');
