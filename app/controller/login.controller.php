@@ -29,9 +29,10 @@ class loginController {
 
         // Hashear la contraseña
         $userAdmin = $this->model->getAdmin();
+        
         if ($userPost == $userAdmin->usuarios && password_verify($passwordPost, $userAdmin->pass)) {
             loginHelper::login($userAdmin);
-            header('Location: ' . BASE_URL . 'datosMarcas');
+            header('Location: ' . BASE_URL . 'datosProductos');
         } else {
             $this->view->showLogin('Usuario inválido');
         }
@@ -40,7 +41,7 @@ class loginController {
 
     public function logout() {
         loginHelper::logout();
-        header('Location: ' . HOME_URL);    
+        header('Location: ' . BASE_URL);    
     }
 }
 

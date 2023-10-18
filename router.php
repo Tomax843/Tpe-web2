@@ -1,6 +1,7 @@
 <?php
 require_once './app/controller/home.controller.php';
 require_once './app/controller/products.controller.php';
+require_once './app/controller/datesProducts.controller.php';
 require_once './app/controller/category.controller.php';
 require_once './app/controller/login.controller.php';
 
@@ -20,7 +21,7 @@ switch ($params[0]) {
         $homeController->mostrarHome();
         break;
     case 'datosProductos':
-        $productsController = new productsController();
+        $productsController = new dateProductsController();
         $productsController->showDates();
         break;  
         
@@ -43,28 +44,28 @@ switch ($params[0]) {
         $categoryController->category($categoryId);
         break;
     case 'agregar':
-        $productsController = new productsController();
+        $productsController = new DateProductsController();
         $productsController->addProduct();
         break;
 
     case 'eliminar':
         $productId = $params[1];
         
-        $productsController = new productsController();
+        $productsController = new dateProductsController();
         $productsController->deleteProducts($productId);
         break;
 
     case 'update-producto':
         $productId = $params[1];
 
-        $controller = new productsController();
+        $controller = new dateProductsController();
         $controller->updateProduct($productId);
         break;
 
     case 'modificar-producto':
         $productId = $params[1];
 
-        $controller = new productsController();
+        $controller = new dateProductsController();
         $controller->editProduct($productId);
         break;
 

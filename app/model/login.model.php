@@ -9,7 +9,7 @@ class loginModel {
 
     
     public function getByuser($usuario) {
-        $query = $this->db->prepare('SELECT * FROM usuarios WHERE usuarios = ?');
+        $query = $this->db->prepare('SELECT * FROM usuario WHERE usuarios = ?');
         $query->execute([$usuario]);
 
         return $query->fetch(PDO::FETCH_OBJ);
